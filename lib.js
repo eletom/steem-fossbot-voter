@@ -178,6 +178,7 @@ const
   DB_ALGORITHM = "algorithm",
   DB_CONFIG_VARS = "config_vars",
   DB_AVG_WINDOW_INFO = "avg_window_info",
+  DB_LAST_POST = "last_post",
   DB_DAILY_LIKED_POSTS = "daily_liked_posts",
   DB_POSTS_METADATA = "posts_metadata";
 
