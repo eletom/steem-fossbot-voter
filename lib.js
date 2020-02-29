@@ -1783,13 +1783,16 @@ function getPosts_recursive(posts, stopAtPost, limit, callback) {
         persistentLog(LOG_VERBOSE, "getPosts_recursive, a post object is null, skipping");
         continue;
       }
+      if (stopAtPost !== undefined && stopAtPost != null && postsResult[i].id == stopAtPost.id) {
+        persistentLog(LOG_VERBOSE, "getPosts_recursive, limit reached at last post");
+        limitReached = true;
+        break;
       posts_.push(postsResult[i]);
       if (posts_.length >= limit) {
         persistentLog(LOG_VERBOSE, "getPosts_recursive, limit reached at max num to fetch");
         limitReached = false;
         break;
       }
-    }
     persistentLog(LOG_VERBOSE, "getPosts_recursive, posts now "+posts_.length);
     if (limitReached || postsResult.length < MAX_POST_TO_READ_PER_QUERY || posts_.length == 0) {
       persistentLog(LOG_VERBOSE, "getPosts_recursive, finished");
