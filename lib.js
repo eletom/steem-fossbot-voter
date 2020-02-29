@@ -1785,13 +1785,13 @@ function getPosts_recursive(posts, stopAtPost, limit, callback) {
       }
       if (stopAtPost !== undefined && stopAtPost != null && postsResult[i].id == stopAtPost.id) {
         persistentLog(LOG_VERBOSE, "getPosts_recursive, limit reached at last post");
-        limitReached = true;
+        limitReached = false;
         break;
       }
       posts_.push(postsResult[i]);
       if (posts_.length >= limit) {
         persistentLog(LOG_VERBOSE, "getPosts_recursive, limit reached at max num to fetch");
-        limitReached = true;
+        limitReached = false;
         break;
       }
     }
